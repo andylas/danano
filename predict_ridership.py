@@ -7,7 +7,7 @@ Created on Mon Dec 22 19:36:59 2014
 
 import numpy as np
 import pandas
-#from ggplot import *
+from ggplot import *
 def normalize_features(array):
    """
    Normalize the features in the data set.
@@ -101,5 +101,7 @@ plot = None
 predictions = np.dot(features_array, theta_gradient_descent)
 num = (np.square(values_array - predictions)).sum()
 den = (np.square(values_array - np.mean(values_array))).sum()
+residual = values_array - predictions
+residual_df = pandas.DataFrame({'fitted':predictions,'res':residual})
 r_square = 1 -(num/den)
-
+myplot = ggplot(aes(x='fitted',y='res'),data=residual_df)+geom_point()+xlab('fitted value')+ylab('residual')+ggtitle('residual vs fitted value plot')
