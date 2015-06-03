@@ -10,7 +10,7 @@ import pandas
 import matplotlib.pyplot as plt
 import scipy
 
-turnstile_weather = pandas.read_csv("/Users/anantsalame/udacity/turnstile_data_master_with_weather.csv")
+turnstile_weather = pandas.read_csv("C:/anant/udacity/proj1/turnstile_data_master_with_weather.csv")
 turnstile_weather_raining = turnstile_weather[turnstile_weather['rain']==1]
 turnstile_weather_not_raining=turnstile_weather[turnstile_weather['rain']==0]
 plt.figure()
